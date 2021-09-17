@@ -1,5 +1,6 @@
 #Distro binomial
 #p=0.15 q=0.85 n = 10^2, 10^3, 10^4 y 10^5
+help(pbinom)
 valores = c(0,1:10)
 valoresN <-c(10^2, 10^3, 10^4, 10^5)
 #Lo mismo pero con un vector
@@ -13,7 +14,7 @@ boxplot(valoresN, miDistro, xlab = "Muestras",
 #b) Calcular los valores empiricos de la esperanza y de la varianza de cada una de las 4 muestras, y
 #compararlos con los valores teoricos correspondientes.
 var(miDistro) #Varianza es el cuadrado de la desviación estandar
-sd(miDistro) #Desviación estandar
+mean(miDistro) #Desviación estandar
 var(miDistroEmpirica) #Varianza empirica es el cuadrado de la desviación estandar
 sd(miDistroEmpirica) #Desviación estandar empirica
 #c) Presentar en un mismo gr´afico la funci´on de distribuci´on te´orica de la Distribucion 1 y la funcion
