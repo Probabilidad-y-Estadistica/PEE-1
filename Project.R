@@ -13,11 +13,11 @@ boxplot(valoresN, miDistro, xlab = "Muestras",
         ylab = "Distribuciones", main = "Box plot de la primer distro")
 #b) Calcular los valores empiricos de la esperanza y de la varianza de cada una de las 4 muestras, y
 #compararlos con los valores teoricos correspondientes.
-var(miDistro) #Varianza es el cuadrado de la desviaci�n estandar
-mean(miDistro) #Desviaci�n estandar
-var(miDistroEmpirica) #Varianza empirica es el cuadrado de la desviaci�n estandar
-sd(miDistroEmpirica) #Desviaci�n estandar empirica
-#c) Presentar en un mismo gr�afico la funci�on de distribuci�on te�orica de la Distribucion 1 y la funcion
+var(miDistro) #Varianza es el cuadrado de la desviaci?n estandar
+mean(miDistro) #Desviaci?n estandar
+var(miDistroEmpirica) #Varianza empirica es el cuadrado de la desviaci?n estandar
+sd(miDistroEmpirica) #Desviaci?n estandar empirica
+#c) Presentar en un mismo gr?afico la funci?on de distribuci?on te?orica de la Distribucion 1 y la funcion
 #de distribucion empirica de la muestra para n = 102 Hacer otro grafico similar para n = 105
 b = stepfun(c(1:10),miDistro)
 plot(b,verticals=FALSE)
@@ -25,18 +25,19 @@ plot(miDistroEmpirica1,add=T)
 plot(miDistroEmpirica2,add=T)
 
 
-#M�ximo 8
+#M?ximo 8
 pbinom(8,10,0.15)
 #Lo mismo pero con un vector
 x<-c(0:8)
 sum(dbinom(x,10,0.15))
-#M�s de 3 P=(x>3)=1-P(x<=3)
+#M?s de 3 P=(x>3)=1-P(x<=3)
 1-pbinom(3,10,0.15)
 #Graficar
 
 x<-c(0:10)
 y<-dbinom(x,10,0.15)
 boxplot(x,y)
+
 
 # EJ 1
 # distribución binoamial binomial (30 ,  0.15)
@@ -45,11 +46,10 @@ boxplot(x,y)
 #       n,     Número de observaciones aleatorias a ser generadas
 #       size,  Número de ensayos (> = 0)
 #       prob)  La probabilidad de éxito en cada ensayo
-x <- 1:30
-a = rbinom(x, 10^2, 0.15)
-b = rbinom(x, 10^3, 0.15)
-c = rbinom(x, 10^4, 0.15)
-d = rbinom(x, 10^5, 0.15)
+a = rbinom(10^2,30, 0.15)
+b = rbinom(10^3,30, 0.15)
+c = rbinom(10^4,30, 0.15)
+d = rbinom(10^5,30, 0.15)
 
 randomValues <- c(a,b,c,d)
 
@@ -63,7 +63,7 @@ boxplot(values ~ group,
                 "lightblue", 
                 "lightgreen"),
         main = "Distribución binomial",
-        xlab = "Ensayos",
+        xlab = "Muestras",
         ylab = "No se que es esto")
 
 
@@ -80,25 +80,17 @@ espC = mean(c)
 espD = mean(d)
 
 # Esperanza Teorica
-espAT = 10^2 * 0.15
-espBT = 10^3 * 0.15
-espCT = 10^4 * 0.15
-espDT = 10^5 * 0.15
 
-# Varianza Teorixa
+
+# Varianza Empirica
 varA = var(a)
 varB = var(b)
 varC = var(c)
 varD = var(d)
 
 # Varianza Teorica
-varAT = 10^2 * (1 - 0.15)
-varBT = 10^3 * (1 - 0.15)
-varCT = 10^4 * (1 - 0.15)
-varDT = 10^5 * (1 - 0.15)
 
 # Distribución acumulada empirica
-distA = ecdf(a)
-distD = ecdf(d)
-plot(distA)
-plot(distD)
+
+
+
