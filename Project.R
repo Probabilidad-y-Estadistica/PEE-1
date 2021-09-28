@@ -56,6 +56,10 @@ randomValues <- c(a,b,c,d)
 data <- data.frame(values =randomValues,
                    group = c("10^2","10^3","10^4","10^5"))
 
+
+boxplot(values ~ group, data, ylim = range(0:120), yaxs = "i")
+axis(4, at=seq(0, 120, 10))
+
 boxplot(values ~ group,
         data, 
         col = c("pink",
