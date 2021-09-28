@@ -64,14 +64,8 @@ boxplot(values ~ group,
                 "lightgreen"),
         main = "Distribución binomial",
         xlab = "Muestras",
-        ylab = "No se que es esto")
+        ylab = "Valor variable aleatoria")
 
-
-plot(randomValues, type = "s", lwd = 2,
-     col = "lightgreen",
-     main = "Distribución binomial",
-     xlab = "Ensayos",
-     ylab = "No se que es esto")
 
 # Esperanza Empírica
 espA = mean(a)
@@ -80,7 +74,7 @@ espC = mean(c)
 espD = mean(d)
 
 # Esperanza Teorica
-
+espT = 30*0.15
 
 # Varianza Empirica
 varA = var(a)
@@ -89,8 +83,13 @@ varC = var(c)
 varD = var(d)
 
 # Varianza Teorica
+varT = 30*0.15*0.85
 
-# Distribución acumulada empirica
+# Función de distribución acumulada empirica
+distA = ecdf(a)
+distD = ecdf(d)
 
+# Función de distribución teórica
+plot(distA, main = "Función de distribución")
 
 
