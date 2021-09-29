@@ -74,21 +74,4 @@ legend("bottomright",
        lty = 1, col = c("blue","red"), lwd = 2, box.lty =1)
 
 
-# Grid of X-axis values
-x <- 1:80
-
-# size = 80, prob = 0.2
-plot(dbinom(x, size = 80, prob = 0.2), type = "h", lwd = 2,
-     main = "Binomial probability function",
-     ylab = "P(X = x)", xlab = "Number of successes")
-
-# size = 80, prob = 0.3
-lines(dbinom(x, size = 80, prob = 0.3), type = "h",
-      lwd = 2, col = rgb(1,0,0, 0.7))
-
-# Add a legend
-legend("topright", legend = c("80  0.2", "80  0.3"),
-       title = "size  prob", title.adj = 0.95,
-       lty = 1, col = 1:3, lwd = 2, box.lty = 0)
-
 
