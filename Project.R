@@ -56,10 +56,6 @@ randomValues <- c(a,b,c,d)
 data <- data.frame(values =randomValues,
                    group = c("10^2","10^3","10^4","10^5"))
 
-
-boxplot(values ~ group, data, ylim = range(0:120), yaxs = "i")
-axis(4, at=seq(0, 120, 10))
-
 boxplot(values ~ group,
         data, 
         col = c("pink",
@@ -68,7 +64,9 @@ boxplot(values ~ group,
                 "lightgreen"),
         main = "Distribución binomial",
         xlab = "Muestras",
-        ylab = "Valor variable aleatoria")
+        ylab = "Valor variable aleatoria",
+        yaxt='n')
+axis(2, at=seq(0, 30, 1),las=2)
 
 
 # Esperanza Empírica
@@ -93,7 +91,10 @@ varT = 30*0.15*0.85
 distA = ecdf(a)
 distD = ecdf(d)
 
-# Función de distribución teórica
-plot(distA, main = "Función de distribución")
+# Función de distribución teórica y empirica
+plot(stepfun(0:10,pbinom(x <- 1:12,30,0.15)), main = "Función de distribución", col="cyan")
+plot(distA, col="red")
+lines(distD, col="blue")
+
 
 
