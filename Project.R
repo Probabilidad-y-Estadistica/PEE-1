@@ -92,8 +92,18 @@ distA = ecdf(a)
 distD = ecdf(d)
 
 # Función de distribución teórica y empirica
-plot(stepfun(0:10,pbinom(x <- 1:12,30,0.15)), main = "Función de distribución", col="cyan")
-plot(distA, col="red")
+plot(stepfun(c(1:10),pbinom(c(0,1:10),30,0.15)), 
+     main = "Función de distribución", 
+     xlab = "k",
+     ylab = "F(k)",
+     col="red")
+lines(distA, col="springgreen4")
+
+plot(stepfun(c(1:10),pbinom(c(0,1:10),30,0.15)), 
+     main = "Función de distribución", 
+     xlab = "k",
+     ylab = "F(k)",
+     col="red")
 lines(distD, col="blue")
 
 
