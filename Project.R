@@ -120,35 +120,62 @@ varD = var(d)
 
 # Histogramas
 x <- seq(-20, 10, 1)
-hist(a, main="Normal distribution", breaks = 50, 
-     xlab="x", freq=FALSE)
-lines(x, dnorm(x, mean = -4, sd = 4), col = "blue",
-      lty = 1, lwd = 2)
-polygon(x, dnorm(x, mean = -4, sd = 4), col = rgb(0, 0, 1, alpha = 0.5))
+hist(a, 
+     main="Distribución normal - muestra 10^2",
+     breaks = 10, 
+     xaxt="n",
+     ylab="Densidad",
+     xlab="x",
+     freq=FALSE)
+
+lines(x, 
+      dnorm(x, mean = -4, sd = 4), 
+      col = "blue",
+      lty = 1, 
+      lwd = 2,
+      xaxt="n")
+
+polygon(x, 
+        dnorm(x, mean = -4, sd = 4), 
+        col = rgb(0, 0, 1, 
+                  alpha = 0.5))
+axis(1, 
+     at=seq(-20, 10, 1),
+     las=2)
 
 
-hist(d, main="Normal distribution", breaks = 50,xaxt="n", xlab="x", freq=FALSE)
-lines(x, dnorm(x, mean = -4, sd = 4), col = "blue", lty = 1, lwd = 2, xaxt="n")
+hist(d, 
+     main="Distribución normal - muestra 10^5",
+     ylab="Densidad",
+     xlab="x",
+     breaks = 50,
+     xaxt="n", 
+     freq=FALSE)
+
+lines(x, 
+      dnorm(x, mean = -4, sd = 4), 
+      col = "blue", 
+      lty = 1, 
+      lwd = 2, 
+      xaxt="n")
+
+polygon(x, 
+        dnorm(x, mean = -4, sd = 4), 
+        col = rgb(0, 0, 1, alpha = 0.5))
+
 axis(1, at=seq(-20, 10, 1),las=1)
 
+# EJ 3
+# Distribución Normal(-4,16)
+# PT 1) n = 10 ^ 3
+a = rnorm(10^3,-4, sqrt(16)) 
+# media empírica de a
+muEmp = mean(a) 
+# media teórica
+muTeo = -4
+#Desvión estandar teórica
+desvTeo = sqrt(16)
+# Valor estandarizado de mediana empíricia
+medEsta = sqrt(1000) * ((muEmp - muTeo)/desvTeo)
 
-data <- rnorm(100, mean=15, sd=1)
-hist(data, xlim=range(11:19), main="Size 100", xlab="x", freq=FALSE)
-curve(dnorm(x,mean=mean(data),sd=sd(data)), add=TRUE,col="red")
-# https://r-coder.com/normal-distribution-r/
-# Grid of X-axis values
-x <- seq(-4, 8, 0.1)
-
-#-----------------------------------------
-# Same standard deviation, different mean
-#-----------------------------------------
-# Mean 0, sd 1
-plot(x, dnorm(x, mean = 0, sd = 1), type = "l",
-     ylim = c(0, 0.6), ylab = "", lwd = 2, col = "red")
-# Mean 3, sd 1
-lines(x, dnorm(x, mean = 3, sd = 1), col = "blue", lty = 1, lwd = 2)
-
-# Adding a legend
-legend("topright", legend = c("0 1", "3 1"), col = c("red", "blue"),
-       title = expression(paste(mu, " ", sigma)),
-       title.adj = 0.9, lty = 1, lwd = 2, box.lty = 0)
+# PT 2)
