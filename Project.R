@@ -120,9 +120,21 @@ varD = var(d)
 
 # Histogramas
 x <- seq(-20, 10, 1)
-hist(a, main="Normal distribution", breaks = 50)
-hist(d, main="Normal distribution", breaks = 50)
+hist(a, main="Normal distribution", breaks = 50, 
+     xlab="x", freq=FALSE)
+lines(x, dnorm(x, mean = -4, sd = 4), col = "blue",
+      lty = 1, lwd = 2)
+polygon(x, dnorm(x, mean = -4, sd = 4), col = rgb(0, 0, 1, alpha = 0.5))
 
+
+hist(d, main="Normal distribution", breaks = 50,xaxt="n", xlab="x", freq=FALSE)
+lines(x, dnorm(x, mean = -4, sd = 4), col = "blue", lty = 1, lwd = 2, xaxt="n")
+axis(1, at=seq(-20, 10, 1),las=1)
+
+
+data <- rnorm(100, mean=15, sd=1)
+hist(data, xlim=range(11:19), main="Size 100", xlab="x", freq=FALSE)
+curve(dnorm(x,mean=mean(data),sd=sd(data)), add=TRUE,col="red")
 # https://r-coder.com/normal-distribution-r/
 # Grid of X-axis values
 x <- seq(-4, 8, 0.1)
