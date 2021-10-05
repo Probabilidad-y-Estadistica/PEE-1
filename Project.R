@@ -179,3 +179,11 @@ desvTeo = sqrt(16)
 medEsta = sqrt(1000) * ((muEmp - muTeo)/desvTeo)
 
 # PT 2)
+promEst <- 0
+for(i in 1:500){
+        promEst[i] <- sqrt(1000) * ((muEmp - muTeo)/desvTeo)
+}
+
+print(promEst)
+
+
