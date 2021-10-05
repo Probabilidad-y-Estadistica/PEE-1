@@ -93,7 +93,8 @@ plot(stepfun(c(1:10),pbinom(c(0,1:10),30,0.15)),
      main = "Función de distribución acumulada", 
      xlab = "k",
      ylab = "F(k)",
-     col="red")
+     col="red",
+     verticals=FALSE)
 
 # Sobre el gráfico anterior graficamos nuestra desitribución empirica 
 # con tamaño de muestera 10^5 que obtubimos previmante con un color
