@@ -128,6 +128,7 @@ hist(a,
      xlab="x",
      freq=FALSE)
 
+
 lines(x, 
       dnorm(x, mean = -4, sd = 4), 
       col = "blue",
@@ -181,9 +182,11 @@ medEsta = sqrt(1000) * ((muEmp - muTeo)/desvTeo)
 # PT 2)
 promEst <- 0
 for(i in 1:500){
+        a = rnorm(10^3,-4, sqrt(16))
         promEst[i] <- sqrt(i) * ((muEmp - muTeo)/desvTeo)
 }
 #Presentar en un histograma
+s = seq(-1, 20, 1)
 hist(promEst, 
      main="K=500 valores estandarizados",
      ylab="Densidad",
@@ -191,8 +194,8 @@ hist(promEst,
      breaks = 50,
      xaxt="n", 
      freq=FALSE)
-lines(x, 
-      dnorm(x, mean = -4, sd = 4), 
+lines(s, 
+      dnorm(s, mean = -4, sd = 4), 
       col = "blue",
       lty = 1, 
       lwd = 2,
