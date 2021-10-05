@@ -187,16 +187,17 @@ for(i in 1:500){
         promEst[i] <- sqrt(i) * ((muEmpb - muTeo)/desvTeo)
 }
 #Presentar en un histograma
-s = seq(-200, 10, 1)
-hist(promEst, 
-     main="K=500 valores estandarizados",
-     ylab="Densidad",
+s = seq(-20, 10, 1)
+hist(promEst,
+     main="promEst",
+     breaks = 30, 
+     xaxt="n",
+     ylab="y",
      xlab="x",
-     breaks = 50,
-     xaxt="n", 
      freq=FALSE)
-lines(s, 
-      dnorm(s, mean = -4, sd = 4), 
+
+lines(x, 
+      dnorm(x, mean = -4, sd = 4), 
       col = "blue",
       lty = 1, 
       lwd = 2,
