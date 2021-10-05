@@ -182,11 +182,12 @@ medEsta = sqrt(1000) * ((muEmp - muTeo)/desvTeo)
 # PT 2)
 promEst <- 0
 for(i in 1:500){
-        a = rnorm(10^3,-4, sqrt(16))
-        promEst[i] <- sqrt(i) * ((muEmp - muTeo)/desvTeo)
+        ab = rnorm(10^3,-4, sqrt(16))
+        muEmpb = mean(ab) 
+        promEst[i] <- sqrt(i) * ((muEmpb - muTeo)/desvTeo)
 }
 #Presentar en un histograma
-s = seq(-1, 20, 1)
+s = seq(-200, 10, 1)
 hist(promEst, 
      main="K=500 valores estandarizados",
      ylab="Densidad",
