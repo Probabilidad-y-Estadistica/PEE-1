@@ -15,16 +15,17 @@ d = rbinom(10^5,30, 0.15)
 
 # Para graficar las 4 mustras en un mismo gráfico de cajas generamos un array
 # con los resultados
-randomValues <- c(a,b,c,d)
+#randomValues <- c(a,b,c,d)
 
 # agregamos un data.frame para identificar cada gráfico
-data <- data.frame(values =randomValues,
-                   group = c("10^2","10^3","10^4","10^5"))
+#data <- data.frame(values =randomValues,
+#                   group = c("10^2","10^3","10^4","10^5"))
 
 # Con boxplot generamos el gráfico de cajas agregado color para distiguir 
 # cada gráfico y borramos el eje "y" para agregar uno más exacto
-boxplot(values ~ group,
-        data, 
+boxplot(#values ~ group,
+        #data,
+        a,b,c,d,
         col = c("pink",
                 "beige", 
                 "lightblue", 
@@ -33,6 +34,12 @@ boxplot(values ~ group,
         xlab = "Muestras",
         ylab = "Valor variable aleatoria",
         yaxt='n')
+
+#Mostramos los datos particulares de cada una de las muestras obtenidas.
+boxplot.stats(a)
+boxplot.stats(b)
+boxplot.stats(c)
+boxplot.stats(d)
 
 # Agregamos eje "y" más exacto
 axis(2, at=seq(0, 30, 1),las=2)
@@ -130,8 +137,9 @@ data <- data.frame(values =randomValues,
 # Con boxplot generamos el gráfico de cajas agregado color para distiguir 
 # cada gráfico y borramos el eje "y" para agregar uno más exacto, al igual
 # que lo hicimos con la distribución binomial
-boxplot(values ~ group,
-        data, 
+boxplot(#values ~ group,
+        #data,
+        a,b,c,d,
         col = c("pink",
                 "beige", 
                 "lightblue", 
@@ -143,6 +151,9 @@ boxplot(values ~ group,
 
 # Agregamos eje "y" más exacto
 axis(2, at=seq(-20, 20, 1),las=2)
+boxplot.stats(a)
+a
+boxplot.stats(b)
 
 # Como estamos trabajando con la dsitribución normal, sabemos que la esperanza
 # está definida por el valor otorgado para los parámetros de la
@@ -198,7 +209,7 @@ legend("topleft",
        legend = c("Valores aleatorios",
                   "Función de densidad"),
        lty = 1, col = c("grey","blue"), lwd =1, box.lty =1)
-
+a
 
 hist(d, 
      main="Distribución normal - muestra 10^5",
