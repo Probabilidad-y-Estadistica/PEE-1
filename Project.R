@@ -78,11 +78,11 @@ distD = ecdf(d)
 # utilizando "plot". genrando los escalones caracter铆sticos. Nos aseguramos
 # de eliminar las verticales y de agregar las etiquetas correspondientes
 plot(stepfun(c(1:10),pbinom(c(0,1:10),30,0.15)), 
-     main = "Funci贸n de distribuci贸n acumulada", 
+     main = "Funci髇 de distribuci髇 acumulada para 10^2", 
      xlab = "k",
      ylab = "F(k)",
-     col="red",
-     verticals=FALSE)
+     col="red")
+
 
 # Sobre el gr谩fico anterior graficamos nuestra desitribuci贸n empirica 
 # con tama帽o de muestera 10^2 que obtuubimos previmante con un color
@@ -92,29 +92,24 @@ lines(distA, col="springgreen4")
 # Agregamos una leyenda para hacer m谩s clara la identificaci贸n
 # de los gr谩ficos
 legend("bottomright", 
-       legend = c("Distribuci贸n Acumulada Emp铆rica - 10^2",
-                  "Distribuci贸n Acumulada Te贸rica"),
+       legend = c("Distribuci髇 Acumulada Emp韗ica - 10^2",
+                  "Distribuci髇 Acumulada Te髍ica"),
        lty = 1, col = c("red","springgreen4"), lwd = 2, box.lty =1)
 
+
 # Analogamente al gr谩fico anterior gr谩ficamos la distribuci贸n acumulada te贸rica
+
 plot(stepfun(c(1:10),pbinom(c(0,1:10),30,0.15)), 
-     main = "Funci贸n de distribuci贸n acumulada", 
+     main = "Funci髇 de distribuci髇 acumulada para 10^5", 
      xlab = "k",
      ylab = "F(k)",
-     col="red",
-     verticals=FALSE)
-
-# Sobre el gr谩fico anterior graficamos nuestra desitribuci贸n empirica 
-# con tama帽o de muestera 10^5 que obtubimos previmante con un color
-# diferente para distinguirla de la distribuci贸n te贸rica, nuevamente
+     col="red")
 lines(distD, col="blue")
-
-# Agregamos una leyenda para hacer m谩s clara la identificaci贸n
-# de los gr谩ficos
 legend("bottomright", 
-       legend = c("Distribuci贸n Acumulada Emp铆rica - 10^5",
-                  "Distribuci贸n Acumulada Te贸rica"),
+       legend = c("Distribuci髇 Acumulada Emp韗ica - 10^5",
+                  "Distribuci髇 Acumulada Te髍ica"),
        lty = 1, col = c("blue","red"), lwd = 2, box.lty =1)
+
 
 
 
@@ -186,58 +181,47 @@ varD = var(d)
 # Histogramas
 x <- seq(-20, 10, 1)
 hist(a, 
-     main="Distribuci贸n normal - muestra 10^2",
-     breaks = 20, 
+     main="Distribuci髇 normal - muestra 10^2",
+     breaks = 10, 
      xaxt="n",
      ylab="Densidad",
      xlab="x",
      freq=FALSE)
-
-
 lines(x, 
       dnorm(x, mean = -4, sd = 4), 
       col = "blue",
       lty = 1, 
       lwd = 2,
       xaxt="n")
-
 polygon(x, 
         dnorm(x, mean = -4, sd = 4), 
-        col = rgb(0, 0, 1, 
-                  alpha = 0.5))
-axis(1, 
-     at=seq(-20, 10, 1),
-     las=2)
-legend("topleft", 
-       legend = c("Valores aleatorios",
-                  "Funci贸n de densidad"),
-       lty = 1, col = c("grey","blue"), lwd =1, box.lty =1)
-a
+        col = rgb(0, 0, 1, alpha = 0.5))
+axis(1, at=seq(-20, 10, 1), las=2)
+
+
 
 hist(d, 
-     main="Distribuci贸n normal - muestra 10^5",
+     main="Distribuci髇 normal - muestra 10^5",
      ylab="Densidad",
      xlab="x",
      breaks = 50,
      xaxt="n", 
      freq=FALSE)
-
 lines(x, 
       dnorm(x, mean = -4, sd = 4), 
       col = "blue", 
       lty = 1, 
       lwd = 2, 
       xaxt="n")
-
 polygon(x, 
         dnorm(x, mean = -4, sd = 4), 
-        col = rgb(0, 1, 0, alpha = 0.5))
-
+        col = rgb(0, 0, 1, alpha = 0.5))
 axis(1, at=seq(-20, 10, 1),las=1)
+
 legend("topleft", 
        legend = c("Valores aleatorios",
                   "Funci贸n de densidad"),
-       lty = 1, col = c("grey","green"), lwd =1, box.lty =1)
+       lty = 1, col = c("grey","blue"), lwd =1, box.lty =1)
 
 # EJ 3
 # Distribuci贸n Normal(-4,16)
@@ -283,6 +267,3 @@ legend("topleft",
        legend = c("Promedio estandarizado",
                   "Distribuci贸n normal estandar"),
        lty = 1, col = c("grey","red"), lwd =1, box.lty =1)
-
-
-
