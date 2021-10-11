@@ -30,7 +30,7 @@ boxplot(#values ~ group,
                 "beige", 
                 "lightblue", 
                 "lightgreen"),
-        main = "Distribución binomial",
+        main = "Distribuci�n binomial",
         xlab = "Muestras",
         ylab = "Valor variable aleatoria",
         yaxt='n')
@@ -40,6 +40,7 @@ boxplot.stats(a)
 boxplot.stats(b)
 boxplot.stats(c)
 boxplot.stats(d)
+
 
 # Agregamos eje "y" más exacto
 axis(2, at=seq(0, 30, 1),las=2)
@@ -130,9 +131,10 @@ d = rnorm(10^5,-4, sqrt(16))
 
 # Para graficar las 4 mustras en un mismo gráfico de cajas generamos un array
 # con los resultados
-randomValues <- c(a,b,c,d)
-data <- data.frame(values =randomValues,
-                   group = c("10^2","10^3","10^4","10^5"))
+
+#randomValues <- c(a,b,c,d)
+#data <- data.frame(values =randomValues,
+                   #group = c("10^2","10^3","10^4","10^5"))
 
 # Con boxplot generamos el gráfico de cajas agregado color para distiguir 
 # cada gráfico y borramos el eje "y" para agregar uno más exacto, al igual
@@ -144,7 +146,7 @@ boxplot(#values ~ group,
                 "beige", 
                 "lightblue", 
                 "lightgreen"),
-        main = "Distribución normal",
+        main = "Distribuci�n normal",
         xlab = "Muestras",
         ylab = "Valor variable aleatoria", 
         yaxt='n')
@@ -152,8 +154,9 @@ boxplot(#values ~ group,
 # Agregamos eje "y" más exacto
 axis(2, at=seq(-20, 20, 1),las=2)
 boxplot.stats(a)
-a
 boxplot.stats(b)
+boxplot.stats(c)
+boxplot.stats(d)
 
 # Como estamos trabajando con la dsitribución normal, sabemos que la esperanza
 # está definida por el valor otorgado para los parámetros de la
